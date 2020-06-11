@@ -23,36 +23,86 @@ enum layer_names {
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
-    QMKBEST = SAFE_RANGE,
-    QMKURL
+    mac1 = SAFE_RANGE,
+    mac2,mac3,mac4,mac5,mac6,mac7,mac8
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [_BASE] = LAYOUT(
-        KC_A,    KC_1,    MO(_FN),
-            KC_TAB,   KC_SPC
+        mac1,   mac2, MO(_FN),
+        mac3,   mac4, mac5,
+        mac6,   mac7, mac8 
     ),
     [_FN] = LAYOUT(
-        QMKBEST, QMKURL,  _______,
-            RESET,    XXXXXXX
+        XXXXXXX, XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX
     )
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case QMKBEST:
+        case mac1:
             if (record->event.pressed) {
                 // when keycode QMKBEST is pressed
-                SEND_STRING("QMK is the best thing ever!");
+                SEND_STRING("Hello World");
             } else {
                 // when keycode QMKBEST is released
             }
             break;
-        case QMKURL:
+        case mac2:
             if (record->event.pressed) {
                 // when keycode QMKURL is pressed
-                SEND_STRING("https://qmk.fm/\n");
+                SEND_STRING("Goodbye World");
+            } else {
+                // when keycode QMKURL is released
+            }
+            break;
+            case mac3:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("git add *");
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+        case mac4:
+            if (record->event.pressed) {
+                // when keycode QMKURL is pressed
+                SEND_STRING("git commit");
+            } else {
+                // when keycode QMKURL is released
+            }
+            break;
+        case mac5:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("git push origin master");
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+        case mac6:
+            if (record->event.pressed) {
+                // when keycode QMKURL is pressed
+                SEND_STRING("Finals are almost done!");
+            } else {
+                // when keycode QMKURL is released
+            }
+            break;
+        case mac7:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("Stay safe!");
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+        case mac8:
+            if (record->event.pressed) {
+                // when keycode QMKURL is pressed
+                SEND_STRING("More homework? Oh no...");
             } else {
                 // when keycode QMKURL is released
             }
